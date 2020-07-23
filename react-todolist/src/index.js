@@ -68,7 +68,7 @@ class App extends React.Component {
   }
 
   render() {
-    /* mapメソッドでitemsを展開し、要素分のTodoコンポーネントを呼び出す */
+    /* mapメソッドでthis.state.itemsを展開し、要素分のTodoコンポーネントを呼び出す */
     const todos = this.state.items.map((item, index) => {
       return (
         <Todo 
@@ -87,8 +87,9 @@ class App extends React.Component {
           {todos}
         </div>
         <form id="add-todo" onSubmit={this.addTodo}>
+          <div id="empty-div"></div>
           <input type="text" name="text" onChange={this.handleChange} value={this.state.text}/>
-          <button>
+          <button className="btn">
             Add #{this.state.items.length + 1}
           </button>
         </form>
@@ -117,7 +118,7 @@ class Todo extends React.Component {
       <form key={this.props.item.id} onSubmit={e => this.submitEvent(e, this.props.index)}>
         <div className={this.props.item.checkBox? "checkbox": "checkbox checked"} onClick={e => this.checkEvent(e, this.props.index)}></div>
         <input type="text" name="text" defaultValue={this.props.item.text}/>
-        <button type="button" onClick={e => this.clickEvent(e, this.props.index)}>
+        <button type="button" onClick={e => this.clickEvent(e, this.props.index)} className="btn">
           delete
         </button>
       </form>
