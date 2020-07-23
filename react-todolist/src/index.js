@@ -115,8 +115,8 @@ class Todo extends React.Component {
 
   render() {
     return (
-      <form key={this.props.item.id} onSubmit={e => this.submitEvent(e, this.props.index)}>
-        <div className={this.props.item.checkBox? "checkbox": "checkbox checked"} onClick={e => this.checkEvent(e, this.props.index)}></div>
+      <form key={this.props.item.id} onSubmit={e => this.submitEvent(e, this.props.index)} className={this.props.item.checkBox? "": "checked"}>
+        <div className="checkbox" onClick={e => this.checkEvent(e, this.props.index)}></div>
         <input type="text" name="text" defaultValue={this.props.item.text}/>
         <button type="button" onClick={e => this.clickEvent(e, this.props.index)} className="btn">
           delete

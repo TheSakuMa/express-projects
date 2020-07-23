@@ -10,6 +10,10 @@
 }
 
 .checked {
+  opacity: 0.4;
+}
+
+.checked .checkbox {
   background-color: blue;
 }
 
