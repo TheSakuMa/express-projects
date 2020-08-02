@@ -1,0 +1,54 @@
+.checkbox {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  border-radius: 45%;
+  vertical-align: middle;
+  border: 1px solid black;
+  background-color: white;
+  margin: 3px;
+}
+
+.checked {
+  opacity: 0.4;
+}
+
+.checked .checkbox {
+  background-color: blue;
+}
+
+div {
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+input[name=text] {
+  width: 220px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+form {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+.btn {
+  width: 75px;
+}
+
+#add-todo {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#empty-div {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  margin: 4px;
+}
