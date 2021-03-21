@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <form action="execute" method="post" id="main-form">
+      <input type="url" name="url" id="url" />
+      <button type="submit" id="submit-button">実行</button>
+    </form>
+    <% if (data) { %>
+      <pre><%= data %></pre>
+      <button type="button" class="home-button">
+        <a href="/">ホームに戻る</a>
+      </button>
+    <% } %>
+  </body>
+</html>
