@@ -8,15 +8,40 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
-    <form action="execute" method="post" id="main-form">
+    <form action="/execute" method="post" id="main-form">
       <input type="url" name="url" id="url" />
       <button type="submit" id="submit-button">実行</button>
     </form>
     <% if (data) { %>
-      <pre><%= data %></pre>
-      <button type="button" class="home-button">
-        <a href="/">ホームに戻る</a>
+    <pre id="data"><%= data %></pre>
+    <form action="/manipulate" method="post" id="selectByKeyForm">
+      <input type="text" name="keyStr" />
+      <input type="hidden" name="hiddenData">
+      <button type="submit" id="selectByKeyBtn">
+        キーでデータを抽出する
       </button>
+    </form>
+    <button type="button" class="home-button">
+      <a href="/">ホームに戻る</a>
+    </button>
     <% } %>
+    <script>
+      "use strict";
+      const selectByKeyForm = document.getElementById("selectByKeyForm");
+
+      if (selectByKeyForm) {
+        // HTMLFormElement.elementsは、form 要素に含まれるすべてのフォームコントロールを含む HTMLCollection を返す
+        const formElements = selectByKeyForm.elements;
+        const data = document.getElementById("data").innerHTML;
+        selectByKeyForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+          // name="hidden"のhidden要素の値に、id="data"要素内の文字列を設定
+          formElements["hiddenData"].value = data;
+          // action属性値を編集
+          selectByKeyForm.action = selectByKeyForm.action + '/' + formElements["keyStr"].value;
+          selectByKeyForm.submit();
+        });
+      }
+    </script>
   </body>
 </html>

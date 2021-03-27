@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var axios = require('axios');
+var pageInfo = require('../pageInfo');
 
-const title = 'JSONデータをテーブルとして出力しよう'
+const title = pageInfo.title;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
