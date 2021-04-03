@@ -11,7 +11,7 @@ router.post('/:key', function(req, res, next) {
   const newData = data[key]? data[key]: null;
 
   if (newData !== null) {
-    res.render('index', { title: title, data: JSON.stringify(newData) });
+    res.render('index', { title: title, data: JSON.stringify(newData, null, "  ") });
   } else {
     res.render('index', { title: title, data: '指定したキーは存在しないか、値がありません。' });
   }

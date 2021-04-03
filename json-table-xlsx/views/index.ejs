@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="/javascripts/download.js"></script>
   </head>
   <body>
     <h1><%= title %></h1>
@@ -15,11 +16,18 @@
     <% if (data) { %>
     <pre id="data"><%= data %></pre>
     <form action="/manipulate" method="post" id="selectByKeyForm">
-      <input type="text" name="keyStr" />
+      <select name="keyStr">
+        <% var jsonObject = JSON.parse(data); %>
+        <% var options = Object.keys(jsonObject); %>
+        <% for (var element of options) { %>
+          <option><%= element %></option>
+        <% } %>
+      </select>
       <input type="hidden" name="hiddenData">
       <button type="submit" id="selectByKeyBtn">
         キーでデータを抽出する
       </button>
+      <button type="button" id="saveAsFileBtn">ファイルを保存する</button>
     </form>
     <button type="button" class="home-button">
       <a href="/">ホームに戻る</a>
@@ -31,6 +39,7 @@
 
       if (selectByKeyForm) {
         // HTMLFormElement.elementsは、form 要素に含まれるすべてのフォームコントロールを含む HTMLCollection を返す
+        // HTMLFormElement.elementsで返された HTMLCollection は、index 、または要素の name か id の何れかを使って個々の要素にアクセスすることができる
         const formElements = selectByKeyForm.elements;
         const data = document.getElementById("data").innerHTML;
         selectByKeyForm.addEventListener("submit", function (event) {
