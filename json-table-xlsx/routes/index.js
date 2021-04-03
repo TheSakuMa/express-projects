@@ -15,7 +15,6 @@ router.post('/execute', function(req, res, next) {
   axios.get(url)
   .then(function(response) {
     res.render('index', { title: title, data: JSON.stringify(response.data, null, "  ") });
-    console.log(response.data);
   })
   .catch(function(err) {
     console.error(err);
