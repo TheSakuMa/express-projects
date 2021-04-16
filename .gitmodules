@@ -7,3 +7,6 @@
 [submodule "todolist-express"]
 	path = todolist-express
 	url = https://github.com/TheSakuMa/todolist-express
+[submodule "express-books-diary"]
+	path = express-books-diary
+	url = https://github.com/TheSakuMa/express-books-diary
