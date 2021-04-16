@@ -4,3 +4,6 @@
 [submodule "express-bulletinboard"]
 	path = express-bulletinboard
 	url = https://github.com/TheSakuMa/express-bulletinboard
+[submodule "todolist-express"]
+	path = todolist-express
+	url = https://github.com/TheSakuMa/todolist-express
