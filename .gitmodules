@@ -1,3 +1,6 @@
 [submodule "express-projects"]
 	path = express-projects
 	url = https://github.com/TheSakuMa/express-bulletinboard
+[submodule "express-bulletinboard"]
+	path = express-bulletinboard
+	url = https://github.com/TheSakuMa/express-bulletinboard
