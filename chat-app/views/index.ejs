@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <% if (!user) { %>
+      <%# 未ログイン状態の場合 %> 
+      <p>ログインしてください。</p>
+      <% if (errMessage) { %>
+        <p><%= errMessage %></p>
+      <% } %>
+      <form action="login" method="post">
+        <input type="text" name="email_address" required>
+        <input type="password" name="user_pass" required>
+        <button type="submit">ログイン</button>
+      </form>
+      <p>ユーザ登録は、<a href="/registration">こちらから</a></p>
+    <% } else { %>
+      <%# ログイン状態の場合 %>
+      <button type="button"><a href="/logout">ログアウト</a></button>
+      
+    <% } %>
+  </body>
+</html>

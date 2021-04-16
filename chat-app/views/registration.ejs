@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <% if (message) { %>
+      <%= message %>
+    <% } else { %>
+      <form action="/registration/registar" method="post">
+        <div>
+          <label for="email_address">メールアドレス：</label>
+          <input type="email" name="email_address" id="email_address" maxlength="100" required>
+        </div>
+        <div>
+          <label for="user_name">ユーザ名：</label>
+          <input type="text" name="user_name" id="user_name" maxlength="30" required>
+        </div>
+        <div>
+          <label for="user_pass">パスワード：</label>
+          <input type="password" name="user_pass" id="user_pass" required>
+        </div>
+        <div>
+          <label for="self_introdunction">自己紹介：</label>
+          <textarea name="self_introdunction" id="self_introdunction" maxlength="1000"></textarea>
+        </div>
+        <button type="submit">登録</button>
+      </form>
+      <% if (errorMessages) { %>
+        <% for(var item of errorMessages) { %>
+          <%= item['msg'] %>
+        <% } %>
+      <% } %>
+    <% } %>
+    <button type="button"><a href="/">ホームに戻る</a></button>
+  </body>
+</html>
