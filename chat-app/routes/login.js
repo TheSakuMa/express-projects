@@ -3,6 +3,10 @@ const router = express.Router();
 const UserModel = require('../models/userModel');
 const bcrypt = require('bcrypt');
 
+router.get('/', function(req, res, next) {
+  res.redirect('/');
+});
+
 router.post('/', function (req, res, next) {
   const emailAddress = req.body.email_address;
   const password = req.body.user_pass;

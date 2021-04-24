@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href='/stylesheets/style.css'>
+  </head>
+  <body>
+    <div class="center-div">
+      <form action="/add-friend/search-user" method="POST">
+        <label for="user_name">ユーザ名：</label>
+        <input type="text" name="user_name" id="user_name">
+        <button type="submit">検索する</button>
+      </form>
+    </div>
+    <% if (users) { %>
+      <div class="center-div">
+        <form action="/add-friend/add" method="POST">
+        <% users.forEach(user => { %>
+          <p>
+            <input type="radio" name="user_id" value="<%= user.id %>" id="<%= user.id %>"><label for="<%= user.id %>"><%= user.name %></label>
+          </p>
+        <% }); %>
+        </form>
+      </div>
+    <% } %>
+  </body>
+</html>

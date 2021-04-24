@@ -14,7 +14,7 @@
       <% if (errMessage) { %>
         <p><%= errMessage %></p>
       <% } %>
-      <form action="login" method="post">
+      <form action="login" method="POST">
         <input type="text" name="email_address" required>
         <input type="password" name="user_pass" required>
         <button type="submit">ログイン</button>
@@ -23,7 +23,10 @@
     <% } else { %>
       <%# ログイン状態の場合 %>
       <button type="button"><a href="/logout">ログアウト</a></button>
-      
+      <button type="submit"><a href="/add-friend">友達を追加する</a></button>
+      <form action="create-room" method="GET">
+        <button type="submit">チャットルームを作成する</button>
+      </form>
     <% } %>
   </body>
 </html>

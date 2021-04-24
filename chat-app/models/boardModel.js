@@ -4,7 +4,14 @@ const UserModel = require('./userModel');
 
 const boardSchema = new Schema({
   participants: [String],
-  messages: Map,
+  messages: [
+    {
+      body: String,
+      user_id: String,
+      created_at: { type: Date, default: Date.now },
+      updated_at: { type: Date, default: Date.now }
+    }
+  ],
   created_at: { type: Date, default: Date.now },
 });
 
