@@ -7,10 +7,12 @@
 </head>
 
 <body>
-    <% if () { %>
+    <% if (friends) { %>
     <form action="/create" method="POST">
 
     </form>
+    <% } else { %>
+        <p>チャットルームを作成するには、友だち追加が必要です。</p>
     <% } %>
 </body>
 

@@ -6,8 +6,4 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express', user: req.session.user_id, errMessage: null });
 });
 
-router.get('/create-room', function (req, res, next) {
-  res.render('create-room', { title: 'ルーム作成', errMessage: null });
-});
-
 module.exports = router;

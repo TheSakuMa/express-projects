@@ -6,7 +6,7 @@ const User = new Schema({
   password: { type: String, required: [true, 'パスワードが入力されていません'] },
   email_address: { type: String, max: 100, required: [true, 'メールアドレスが入力されていません'] },
   self_introduction: { type: String, max: 300 },
-  friends: [{ type: String, default: null }],
+  friends_id: [{ type: String, default: null }],
   created_at: { type: Date, default: Date.now },
   updated_at: { type: Date, default: Date.now }
 });

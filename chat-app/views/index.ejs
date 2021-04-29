@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+</head>
+
+<body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
     <% if (!user) { %>
-      <%# 未ログイン状態の場合 %> 
-      <p>ログインしてください。</p>
-      <% if (errMessage) { %>
-        <p><%= errMessage %></p>
-      <% } %>
-      <form action="login" method="POST">
+    <%# 未ログイン状態の場合 %>
+    <p>ログインしてください。</p>
+    <% if (errMessage) { %>
+    <p><%= errMessage %></p>
+    <% } %>
+    <form action="login" method="POST">
         <input type="text" name="email_address" required>
         <input type="password" name="user_pass" required>
         <button type="submit">ログイン</button>
-      </form>
-      <p>ユーザ登録は、<a href="/registration">こちらから</a></p>
+    </form>
+    <p>ユーザ登録は、<a href="/registration">こちらから</a></p>
     <% } else { %>
-      <%# ログイン状態の場合 %>
-      <button type="button"><a href="/logout">ログアウト</a></button>
-      <button type="submit"><a href="/add-friend">友達を追加する</a></button>
-      <form action="create-room" method="GET">
-        <button type="submit">チャットルームを作成する</button>
-      </form>
+    <%# ログイン状態の場合 %>
+    <button type="button"><a href="/logout">ログアウト</a></button>
+    <button type="button"><a href="/add-friend">友達を追加する</a></button>
+    <button type="button"><a href="/create-room">チャットルームを作成する</a></button>
     <% } %>
-  </body>
+</body>
+
 </html>
